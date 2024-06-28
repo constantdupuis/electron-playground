@@ -15,7 +15,7 @@
       
       @font-face {
         font-family: 'Montserrat';
-        src: url('Montserrat-VariableFont_wght.ttf') format('truetype');
+        src: url('./Montserrat-VariableFont_wght.ttf') format('truetype');
       }
 
       html {
@@ -48,11 +48,9 @@
   </head>
   <body>
     <p>
-      <h1>Welcome to QADR</h1>
+      <h1>Welcome to QADR {{testVar}}</h1>
       <p>Select a skecth from remote</p>
-      <p>Remote is reachable at : </p>
-      <p id="IPList"></p>
+      <p>Remote is reachable at : xx.xx.xx.xx:xxxx</p>
     </p>
-    <script src="renderer.js"></script>
   </body>
 </html>
