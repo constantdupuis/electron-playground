@@ -1,0 +1,26 @@
+{
+  "name": "qadra",
+  "version": "0.1.0",
+  "description": "Try, again to make a multi generative art frame app",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "digital picture frame",
+    "picture",
+    "photo",
+    "photography",
+    "creative coding"
+  ],
+  "author": "Constant Dupuis",
+  "license": "CC BY NC 4.0",
+  "devDependencies": {
+    "electron": "31.1.0"
+  },
+  "dependencies": {
+    "express": "4.19.2",
+    "express-handlebars": "7.1.3"
+  }
+}
