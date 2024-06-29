@@ -24,11 +24,11 @@ const createWindow = ( models ) => {
   win.loadFile("./src/main/index.html");
 
   console.log(`send-params : ${models.serverIPs}`);
+
   ipcMain.on('send-params', (event, args) => {
-        console.log(`Received send-params`);
-        
-        // Send a variable back to the renderer process
-        event.sender.send('send-params', { remoteIPs : models.serverIPs});
+        console.log(`Main : received send-params message`);
+          // Send a variable back to the renderer process
+        event.sender.send('send-params', { remoteIPs : models.serverIPs, port : models.port});
   });
 
 };
@@ -101,8 +101,9 @@ app.whenReady().then(() => {
   const models = new QADRModels();
 
   models.serverIPs = getIPs();
+  models.port = 3000;
 
-  const webApp = new WebApp(models, 3000);
+  const webApp = new WebApp(models, models.port);
 
   console.log(`createWindows with models ${models}`);
 

@@ -21,7 +21,7 @@ class WebApp {
 
         //this.webapp.use('/', express.static(path.join(process.cwd(), 'webApp')));
         this.webapp.use('/', (req, res) => {
-            res.render('home');
+            res.render('home', {models : models});
         });
           
         const server = this.webapp.listen(this.port, () => {
@@ -29,7 +29,7 @@ class WebApp {
             console.log('QADR remote web app is listening at :');
             for( const ip of this.models.serverIPs)
             {
-                console.log(` - ${ip}:${port}`);
+                console.log(`- ${ip}:${port}`);
             }
         });
     }

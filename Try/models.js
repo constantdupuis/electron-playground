@@ -2,6 +2,7 @@ class QADRModels
 {   
     sketchs = [];
     serverIPs = [];
+    port = 0;
     constructor()
     {
         this.sketchs = [];
