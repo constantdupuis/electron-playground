@@ -13,8 +13,12 @@ class WebApp {
         this.webapp = express();
         this.webapp.engine('hbs', engine({defaultLayout: 'main', extname: '.hbs'}));
         this.webapp.set('view engine','hbs');
-        this.webapp.set('views', './webApp/views');
-
+        //this.webapp.set('views', './webApp/views');
+        this.webapp.set('views', path.join(__dirname,'views'));
+        //this.webapp.set('fonts', path.join(__dirname,'static', 'fonts'));
+        //this.webapp.set('css', path.join(__dirname,'static', 'css'));
+        this.webapp.use('/static',express.static(path.join(__dirname,'static')));
+        
         this.webapp.get('/hw', (req, res) => {
             res.send('Hello World!')
         });

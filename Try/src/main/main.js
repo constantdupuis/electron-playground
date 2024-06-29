@@ -4,18 +4,20 @@ const path = require('path');
 const fs = require('fs');
 const handlebars = require('handlebars');
 
-const WebApp = require("../../webApp");
+const WebApp = require("../webApp/webApp");
 const QADRModels = require("../../models");
 
 
 // ** Functions  *********************************************************************
 
 const createWindow = ( models ) => {
+  console.log(`creatWindows __dirname ${__dirname}`);
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      //preload: 'preload.js',
       contextIsolation: true,
       enableRemoteModule: false,
   }
