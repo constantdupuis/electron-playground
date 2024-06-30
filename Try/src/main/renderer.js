@@ -13,12 +13,32 @@ window.electronAPI.onParams((data) => {
 
   const ul = document.createElement('div');
 
+  let first = true;
+  let url = '';
+
   data.remoteIPs.forEach(item => {
     const li = document.createElement('div');
     li.textContent = `http://${item}:${data.port}`;
+    if( first)
+    {
+      li.textContent = li.textContent + ' (QRCode)';
+      url = li.textContent;
+      first = false;
+    }
     ul.appendChild(li);
   });
   rootEl.appendChild(ul);
+
+  var qrcode = new QRCode("qrcode");
+  qrcode.makeCode("http://jindo.dev.naver.com/collie");
+
+  //let qr = new QRCode(document.getElementById("qrcode-canvas"), "http://jindo.dev.naver.com/collie");
+
+  // QRCode.toCanvas(document.getElementById('qrcode-canvas'), url, function (error) {
+  //   if (error) console.error(error)
+  //   console.log('QRCode generated');
+  // });
+
   //document.getElementById('IPList').innerText = `Shared Variable: ${data.remoteIPs}`;
 });
 
