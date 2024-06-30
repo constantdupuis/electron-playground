@@ -7,7 +7,13 @@
         {{#if this.inShow}}
           <i class="fa-solid fa-eye active"></i>
         {{else}}
-          <i class="fa-solid fa-eye-slash inactive"></i>
+          <i class="fa-solid fa-eye inactive"></i>
+        {{/if}}
+
+        {{#if this.autoStart}}
+          <i class="fa-solid fa-bolt active"></i>
+        {{else}}
+          <i class="fa-solid fa-bolt inactive"></i>
         {{/if}}
       </span>
       <span>{{this.name}}</span>
