@@ -5,7 +5,7 @@ const fs = require('fs');
 const handlebars = require('handlebars');
 
 const WebApp = require("../webApp/webApp");
-const QADRModels = require("../../models");
+const QADRModels = require("../models/models");
 
 
 // ** Functions  *********************************************************************

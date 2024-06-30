@@ -1,6 +1,106 @@
-.skecth-button {
-  width: 200px;
-  height: 30px;
-  border: 0px;
-  background-color: brown;
+@media (width < 1250px) {
+  .root-container {
+    width: 90%;
+  }
+  body {
+    font-size: 4vmin;
+  }
+}
+
+@media (width >= 1250px) {
+  .root-container {
+    width: 800px;
+    padding: 0 5%;
+  }
+  body {
+    font-size: 2vmin;
+  }
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: #002530;
+  color: #fafbf5;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: Montserrat;
+}
+
+.root-container {
+}
+
+.card {
+  border: 1px solid rgb(73, 73, 73);
+  margin-bottom: 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card .card-header {
+  color: rgba(228, 228, 228, 0.893);
+  background-color: rgb(18, 18, 18);
+  font-weight: 800;
+  vertical-align: middle;
+  padding: 0.7em 1em;
+  border-radius: 10px 10px 0 0;
+}
+
+.card .card-header .header-icon {
+  margin-right: 0.8em;
+}
+
+i.active {
+  color: rgb(0, 193, 0);
+}
+
+i.inactive {
+  color: gray;
+}
+
+.card .card-content {
+  color: rgba(187, 187, 187, 0.893);
+  background-color: rgba(255, 255, 255, 0.121);
+  vertical-align: middle;
+  padding: 0.7em 1em;
+  border-radius: 0 0 10px 10px;
+}
+
+.card .card-content .actions {
+  margin-top: 1em;
+}
+
+.card .card-content .actions a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.543);
+  padding: 0.2em 1.2em;
+  background-color: rgba(255, 255, 255, 0.218);
+}
+
+.card .card-content .actions a:hover {
+  text-decoration: none;
+  padding: 0.2em 1.2em;
+  background-color: rgba(255, 255, 255, 0.545);
+}
+
+.card .card-content .actions a:active {
+  text-decoration: none;
+  padding: 0.2em 1.2em;
+  color: rgba(255, 255, 255, 0.543);
+  background-color: rgba(16, 16, 16, 0.545);
 }

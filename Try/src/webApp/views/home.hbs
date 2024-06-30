@@ -1,15 +1,23 @@
-
-<h2>Sketchs</h2>
+{{! <h2>Sketchs</h2> }}
 
 {{#each models.sketchs}}
-    <button class="skecth-button">{{this}}</button>
+  <div class="card">
+    <div class="card-header">
+      <span class="header-icon">
+        {{#if this.inShow}}
+          <i class="fa-solid fa-eye active"></i>
+        {{else}}
+          <i class="fa-solid fa-eye-slash inactive"></i>
+        {{/if}}
+      </span>
+      <span>{{this.name}}</span>
+    </div>
+    <div class="card-content">
+      {{this.description}}
+      <div class="actions">
+        <span><a class="action" href="sketch/show/{{this.id}}">Show</a></span>
+        <span><a class="action" href="sketch/autostart/{{this.id}}">Auto Start</a></span>
+      </div>
+    </div>
+  </div>
 {{/each}}
-
-<button>Fullscreen</button>
-
-{{!-- <ul>
-{{#each models.sketchs}}
-    <li>{{this}}</li>
-{{/each}}
-</ul> --}}
-
