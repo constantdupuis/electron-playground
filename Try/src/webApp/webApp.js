@@ -15,13 +15,21 @@ class WebApp {
         this.webapp.set('view engine','hbs');
         this.webapp.set('views', path.join(__dirname,'views'));
         this.webapp.use('/static',express.static(path.join(__dirname,'static')));
-        
-        this.webapp.get('/hw', (req, res) => {
-            res.send('Hello World!')
-        });
+
+        // this.webapp.get('/sketch/show/:sketchId', (req, res) => {
+        //     console.log(req.params);
+        //     res.render('home', {models : models});
+        // });
+
+        // this.webapp.get('/sketch/autostart/:sketchId', (req, res) => {
+        //     console.log(req.params);
+        //     res.render('home', {models : models});
+        // });
 
         //this.webapp.use('/', express.static(path.join(process.cwd(), 'webApp')));
         this.webapp.use('/', (req, res) => {
+            console.log(`GET /`);
+            console.log(req.query);
             res.render('home', {models : models});
         });
           
