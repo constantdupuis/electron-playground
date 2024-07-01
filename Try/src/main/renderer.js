@@ -1,5 +1,7 @@
 console.log('rendered.js');
 
+var qrcode = new QRCode("qrcode");
+
 window.electronAPI.onParams((data) => {
   console.log(`Receive ${data.remoteIPs}`);
   const elementId = 'IPList';
@@ -11,35 +13,42 @@ window.electronAPI.onParams((data) => {
     return;
   }
 
-  const ul = document.createElement('div');
+  //const ul = document.createElement('div');
 
   let first = true;
   let url = '';
 
   data.remoteIPs.forEach(item => {
-    const li = document.createElement('div');
-    li.textContent = `http://${item}:${data.port}`;
+    //const li = document.createElement('div');
+    const link = document.createElement('a');
+    const fullUrl = `http://${item}:${data.port}`;
+    link.textContent = fullUrl;
+    link.href = '#';
+    link.classList.add('gen-qrcode-a');
+    link.onclick = (event) => {
+      event.preventDefault();
+      generateQrCode(fullUrl);
+    };
+    
     if( first)
     {
-      li.textContent = li.textContent + ' (QRCode)';
-      url = li.textContent;
+      //link.textContent = link.textContent + ' (QRCode)';
+      url = fullUrl;
       first = false;
     }
-    ul.appendChild(li);
+
+    //li.appendChild(link);
+    rootEl.appendChild(link);
+    //ul.appendChild(li);
   });
-  rootEl.appendChild(ul);
 
-  var qrcode = new QRCode("qrcode");
-  qrcode.makeCode(url);
-
-  //let qr = new QRCode(document.getElementById("qrcode-canvas"), "http://jindo.dev.naver.com/collie");
-
-  // QRCode.toCanvas(document.getElementById('qrcode-canvas'), url, function (error) {
-  //   if (error) console.error(error)
-  //   console.log('QRCode generated');
-  // });
-
-  //document.getElementById('IPList').innerText = `Shared Variable: ${data.remoteIPs}`;
+  //rootEl.appendChild(ul);
+  generateQrCode(url);
+ 
 });
+
+generateQrCode = (url) => {
+  qrcode.makeCode(url);
+};
 
 window.electronAPI.requestParams();

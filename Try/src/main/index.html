@@ -57,8 +57,10 @@
         width: 100%;
         padding: 0px;
         margin: 0px;
-        background-color: #002728; 
-        color: #f2fdcc;
+        xbackground-color: #002728; 
+        background-color: #272727; 
+        xcolor: #f2fdcc;
+        color: #eaeaea;
       }
 
       body {
@@ -78,6 +80,27 @@
         font-weight: bold;
       }
 
+      #IPList{
+        display: flex;
+        flex-direction: column;
+        justify-content : center;
+        align-items : center;
+      }
+
+      .gen-qrcode-a {
+        text-decoration: none;
+        color :#eaeaea;
+        font-weight: lighter;
+      }
+
+      .gen-qrcode-a:hover {
+        font-weight: normal;
+      }
+
+      .gen-qrcode-a:active {
+        font-weight: bold;
+      }
+
     </style>
     <title>QADR</title>
   </head>
@@ -85,11 +108,13 @@
     <p>
       <h1>Welcome to QADR</h1>
       <div>Select a skecth from remote.</div>
+    
       <p>Remote is reachable at : 
-        <div id="IPList"></div>
-      </p>
+            <div id="IPList"></div>
+        </p>
       <div id="qrcode"></div>
     </p>
+
     <script src="js/qrcode.js"></script>
     <script src="renderer.js"></script>
   </body>
