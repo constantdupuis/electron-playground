@@ -30,7 +30,7 @@ window.electronAPI.onParams((data) => {
   rootEl.appendChild(ul);
 
   var qrcode = new QRCode("qrcode");
-  qrcode.makeCode("http://jindo.dev.naver.com/collie");
+  qrcode.makeCode(url);
 
   //let qr = new QRCode(document.getElementById("qrcode-canvas"), "http://jindo.dev.naver.com/collie");
 

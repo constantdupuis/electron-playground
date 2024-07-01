@@ -3,6 +3,7 @@
 {{#each models.sketchs}}
   <div class="card">
     <div class="card-header">
+      <span class="header-title">{{this.name}}</span>
       <span class="header-icon">
         {{#if this.inShow}}
           <i class="fa-solid fa-eye active"></i>
@@ -16,7 +17,6 @@
           <i class="fa-solid fa-bolt inactive"></i>
         {{/if}}
       </span>
-      <span>{{this.name}}</span>
     </div>
     <div class="card-content">
       {{this.description}}

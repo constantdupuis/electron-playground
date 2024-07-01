@@ -35,35 +35,6 @@ const createWindow = ( models ) => {
 
 };
 
-const createWindowFromHbs = () =>{
-
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-  });
-
-  // Load the Handlebars template
-  const templatePath = path.join(__dirname, 'index.hbs');
-  const templateContent = fs.readFileSync(templatePath, 'utf8');
-  const template = handlebars.compile(templateContent);
-
-  // Define the context data for the template
-  const context = {
-    testVar: 'Variable Test'
-  };
-
-    // Render the template with the context data
-    const html = template(context);
-
-     // Load the rendered HTML into the Electron window
-     win.loadURL('data:text/html;charset=utf-8,' + encodeURIComponent(html));
-
-    //  win.on('closed', () => {
-    //      win = null;
-    //  });
-
-};
-
 function getIPs() {
   var ifaces = os.networkInterfaces();
   //let ipAdresse = {};

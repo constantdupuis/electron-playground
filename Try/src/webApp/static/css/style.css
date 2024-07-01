@@ -45,32 +45,63 @@ body {
 .root-container {
 }
 
+.top-banner
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.top-banner-title
+{
+  font-size: 160%;
+  font-weight: 800;
+}
+
+.top-banner-actions
+{
+  font-size: 160%;
+  font-weight: 800;
+}
+
 .card {
   border: 1px solid rgb(73, 73, 73);
   margin-bottom: 1em;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card .card-header {
   color: rgba(228, 228, 228, 0.893);
   background-color: rgb(18, 18, 18);
-  font-weight: 800;
-  vertical-align: middle;
   padding: 0.7em 1em;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 120%;
+}
+
+.card .header-title {
+  font-weight: 800;
 }
 
 .card .card-header .header-icon {
-  margin-right: 0.8em;
+  
 }
 
 i.active {
   color: rgb(0, 193, 0);
+  margin-left: 0.6em;
 }
 
 i.inactive {
   color: gray;
+  margin-left: 0.6em;
 }
 
 .card .card-content {
@@ -78,7 +109,7 @@ i.inactive {
   background-color: rgba(255, 255, 255, 0.121);
   vertical-align: middle;
   padding: 0.7em 1em;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 5px 5px;
 }
 
 .card .card-content .actions {
