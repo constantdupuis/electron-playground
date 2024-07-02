@@ -8,6 +8,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     requestParams : () => ipcRenderer.send('send-params'),
     onParams: (callback) => ipcRenderer.on('send-params', (event, data) => callback(data)),
 
-    sendToMain : (messageData) => ipcRenderer.send('ipc-wWith-main', messageData),
+    sendToMain : (messageData) => ipcRenderer.send('ipc-with-main', messageData),
     fromMain: (callback) => ipcRenderer.on('ipc-with-main', (event, data) => callback(data))
 });

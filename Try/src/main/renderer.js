@@ -13,13 +13,10 @@ window.electronAPI.onParams((data) => {
     return;
   }
 
-  //const ul = document.createElement('div');
-
   let first = true;
   let url = '';
 
   data.remoteIPs.forEach(item => {
-    //const li = document.createElement('div');
     const link = document.createElement('a');
     const fullUrl = `http://${item}:${data.port}`;
     link.textContent = fullUrl;
@@ -32,17 +29,14 @@ window.electronAPI.onParams((data) => {
     
     if( first)
     {
-      //link.textContent = link.textContent + ' (QRCode)';
+
       url = fullUrl;
       first = false;
     }
 
-    //li.appendChild(link);
     rootEl.appendChild(link);
-    //ul.appendChild(li);
   });
 
-  //rootEl.appendChild(ul);
   generateQrCode(url);
  
 });
