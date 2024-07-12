@@ -24,6 +24,7 @@ const createWindow = ( models ) => {
   });
 
   win.loadFile("./src/main/index.html");
+  win.removeMenu();
 
   console.log(`send-params : ${models.serverIPs}`);
 
@@ -33,6 +34,7 @@ const createWindow = ( models ) => {
         event.sender.send('send-params', { remoteIPs : models.serverIPs, port : models.port});
   });
 
+  return win;
 };
 
 function getIPs() {
@@ -74,14 +76,13 @@ app.whenReady().then(() => {
   const models = new QADRModels();
 
   models.serverIPs = getIPs();
-  models.port = 3000;
+  models.port = 4000;
 
   const webApp = new WebApp(models, models.port);
 
   console.log(`createWindows with models ${models}`);
 
   createWindow(models);
-
   // app.on("activate", () => {
   //   if (BrowserWindow.getAllWindows().length === 0) {
   //     createWindow();

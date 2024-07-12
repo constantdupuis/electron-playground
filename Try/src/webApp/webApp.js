@@ -4,11 +4,11 @@ const { engine } = require('express-handlebars');
 
 class WebApp {
     webapp;
-    port = 3000;
+    //port = 3000;
     constructor( models, port )
     {
         this.models = models;
-        this.port = 3000;
+        this.port = 4000;
 
         this.webapp = express();
         this.webapp.engine('hbs', engine({defaultLayout: 'main', extname: '.hbs'}));
@@ -27,10 +27,16 @@ class WebApp {
         // });
 
         //this.webapp.use('/', express.static(path.join(process.cwd(), 'webApp')));
-        this.webapp.use('/', (req, res) => {
+        this.webapp.get('/', (req, res) => {
             console.log(`GET /`);
             console.log(req.query);
             res.render('home', {models : models});
+        });
+
+        this.webapp.get('/remote/fullscreen', (req, res) => {
+            console.log(`GET /remote/fullscreen`);
+            console.log(req.query);
+            res.send('GET request to /remote/fullscreen');
         });
           
         const server = this.webapp.listen(this.port, () => {
