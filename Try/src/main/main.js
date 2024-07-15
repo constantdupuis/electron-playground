@@ -74,21 +74,41 @@ function getIPs() {
 app.whenReady().then(() => {
 
   const models = new QADRModels();
+  let fullScreen = false;
+  let win;
 
   models.serverIPs = getIPs();
   models.port = 4000;
 
   const webApp = new WebApp(models, models.port);
 
+  webApp.toggleFullscreenCallback = () =>{
+    console.log(`Fullscreen ${fullScreen}`);
+    if(fullScreen)
+    {
+      fullScreen = false;
+      console.log(`Toggle fullscreen ${fullScreen}`);
+      win.setFullScreen(fullScreen);
+    }
+    else
+    {
+      fullScreen = true;
+      console.log(`Toggle fullscreen ${fullScreen}`);
+      win.setFullScreen(fullScreen);
+    }
+  };
+
   console.log(`createWindows with models ${models}`);
 
-  createWindow(models);
+  win = createWindow(models);
   // app.on("activate", () => {
   //   if (BrowserWindow.getAllWindows().length === 0) {
   //     createWindow();
   //   }
   // });
 });
+
+
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {

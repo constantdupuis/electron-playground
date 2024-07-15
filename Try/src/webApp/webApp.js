@@ -4,6 +4,7 @@ const { engine } = require('express-handlebars');
 
 class WebApp {
     webapp;
+    toggleFullscreenCallback;
     //port = 3000;
     constructor( models, port )
     {
@@ -33,10 +34,12 @@ class WebApp {
             res.render('home', {models : models});
         });
 
-        this.webapp.get('/remote/fullscreen', (req, res) => {
-            console.log(`GET /remote/fullscreen`);
+        this.webapp.get('/remote/Togglefullscreen', (req, res) => {
+            console.log(`GET /remote/Togglefullscreen`);
+            if( this.toggleFullscreenCallback)
+                this.toggleFullscreenCallback();
             console.log(req.query);
-            res.send('GET request to /remote/fullscreen');
+            res.send('OK');
         });
           
         const server = this.webapp.listen(this.port, () => {
