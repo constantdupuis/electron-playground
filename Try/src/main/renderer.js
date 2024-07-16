@@ -25,11 +25,10 @@ window.electronAPI.onParams((data) => {
     link.onclick = (event) => {
       event.preventDefault();
       generateQrCode(fullUrl);
+      navigator.clipboard.writeText(fullUrl);
     };
     
-    if( first)
-    {
-
+    if( first){
       url = fullUrl;
       first = false;
     }

@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[Q]ADR Remote</title>
     <link rel="stylesheet" href="static/css/style.css"/>
     <link href="static/fontawesome/css/fontawesome.css" rel="stylesheet" />
@@ -11,10 +12,16 @@
 <body>
   <div class="root-container">
     <div class="top-banner">
-      <span class="top-banner-title">[Q]ADR Remote</span><span class="top-banner-actions"><i class="fa-solid fa-gear"></i></span>
+      <span class="top-banner-title">[Q]ADR Remote</span>
+      <span class="top-banner-actions">
+        <a class="action-button" href="#" id="btnSwitchFullScreen"><i class="fa-solid fa-compress"></i></a>
+      </span>
     </div>
     
     {{{body}}}
+
+
+    <script src="static/js/main.js"></script>
   </div>
 </body>
 </html>

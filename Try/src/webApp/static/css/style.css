@@ -27,8 +27,6 @@ html {
   width: 100%;
   padding: 0px;
   margin: 0px;
-  xbackground-color: #002530;
-  xcolor: #fafbf5;
   background-color: #2b2b2b;
   color: #e6e6e6;
 }
@@ -67,6 +65,19 @@ body {
 {
   font-size: 160%;
   font-weight: 800;
+}
+
+.action-button{
+  color: #e6e6e6;
+  text-decoration: none;
+}
+
+.action-button a:hover{
+  font-weight: lighter;
+}
+
+.action-button a:active{
+  font-weight: bold;
 }
 
 .card {
