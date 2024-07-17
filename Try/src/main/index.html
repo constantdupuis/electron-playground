@@ -43,6 +43,11 @@
       }
 
       @font-face {
+        font-family: 'IBMPlexMono-Regular';
+        src: url('./fonts/IBMPlexMono-Regular.ttf') format('truetype');
+      }
+
+      @font-face {
         font-family: 'Montserrat';
         src: url('./fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
       }
@@ -69,13 +74,14 @@
         display : flex;
         justify-content: center;
         align-items: center;
-        font-family: NotoSansDisplay;
+        font-family: RobotoMono;
         font-size: 3vmin;
         flex-direction: column;
       }
 
-      .welcome {
-        font-weight: bold;
+      .welcome-title {
+        font-size:10vmin;
+        margin-bottom: 50px;
       }
 
       #IPList{
@@ -84,6 +90,16 @@
         justify-content : center;
         align-items : center;
         margin-top: 20px;
+      }
+
+      #qrcode {
+        margin-top: 20px;
+      }
+
+      #qrcode-url {
+        margin-top: 10px;
+        font-weight: lighter;
+        font-size: 2vmin;
       }
 
       .gen-qrcode-a {
@@ -105,15 +121,12 @@
   </head>
   <body>
     <p>
-      <h1>Welcome to QADR</h1>
-      <div>Select a skecth from remote.</div>
-    
-      <p>
-        <div>Remote is reachable using following URL(s).</div>
-        <div>Click on a link to change QRCode and copy URL to clipboard.</div>
-            <div id="IPList"></div>
-        </p>
+      <h1 class="welcome-title">[Q]ADR</h1>
+      
+      <div>remote reachable at</div>
+      <div id="IPList"></div>
       <div id="qrcode"></div>
+      <div id="qrcode-url"></div>
     </p>
 
     <script src="js/qrcode.js"></script>

@@ -2,14 +2,26 @@ console.log('rendered.js');
 
 var qrcode = new QRCode("qrcode");
 
+
+let IPListEl;
+let QRCodeUlrEl;
+
 window.electronAPI.onParams((data) => {
   console.log(`Receive ${data.remoteIPs}`);
-  const elementId = 'IPList';
-  
-  const rootEl = document.getElementById(elementId);
+ 
+  const IPListElementId = 'IPList';
+  const QRCodeUrlElementId= 'qrcode-url';
 
-  if (!rootEl) {
-    console.error(`Element with ID ${elementId} not found`);
+  IPListEl = document.getElementById(IPListElementId);
+  QRCodeUlrEl = document.getElementById(QRCodeUrlElementId);
+
+  if (!IPListEl) {
+    console.error(`Element with ID ${IPListElementId} not found`);
+    return;
+  }
+
+  if (!QRCodeUlrEl) {
+    console.error(`Element with ID ${QRCodeUlrEl} not found`);
     return;
   }
 
@@ -19,7 +31,9 @@ window.electronAPI.onParams((data) => {
   data.remoteIPs.forEach(item => {
     const link = document.createElement('a');
     const fullUrl = `http://${item}:${data.port}`;
+    
     link.textContent = fullUrl;
+    
     link.href = '#';
     link.classList.add('gen-qrcode-a');
     link.onclick = (event) => {
@@ -33,7 +47,7 @@ window.electronAPI.onParams((data) => {
       first = false;
     }
 
-    rootEl.appendChild(link);
+    IPListEl.appendChild(link);
   });
 
   generateQrCode(url);
@@ -41,7 +55,12 @@ window.electronAPI.onParams((data) => {
 });
 
 generateQrCode = (url) => {
+  if( QRCodeUlrEl)
+  {
+    QRCodeUlrEl.textContent = url;
+  }
   qrcode.makeCode(url);
 };
 
 window.electronAPI.requestParams();
+
