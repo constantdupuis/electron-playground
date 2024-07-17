@@ -1,4 +1,5 @@
 {
+    "id": "PERLIN_NOISE_FLOW",
     "name" : "Perlin Noise Flow",
     "description" : "Draw particuls flow from Perlin noise"
 }

@@ -71,7 +71,7 @@ function getIPs() {
 
 // ** Events *********************************************************************
 
-app.whenReady().then(() => {
+app.whenReady().then( async () => {
 
   const models = new QADRModels();
   let fullScreen = false;
@@ -79,6 +79,8 @@ app.whenReady().then(() => {
 
   models.serverIPs = getIPs();
   models.port = 4000;
+
+  await models.loadSketchsInfo('./src/sketchs');
 
   const webApp = new WebApp(models, models.port);
 

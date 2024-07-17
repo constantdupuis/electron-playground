@@ -6,6 +6,7 @@ class SketchDef {
     this.description = description;
     this.autoStart = false;
     this.inShow = false;
+    this.path= '';
   }
 }
 
