@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Q]ADR Remote</title>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link href="fontawesome/css/fontawesome.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Q]ADR Web App</title>
+  <link href="css/tailwind.css"  rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="fontawesome/css/fontawesome.css" rel="stylesheet" />
   <link href="fontawesome/css/brands.css" rel="stylesheet" />
   <link href="fontawesome/css/solid.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="root-container">
-    <div class="top-banner">
-      <span class="top-banner-title">[Q]ADR Remote</span>
-      <span class="top-banner-actions">
-        <a class="action-button" href="#" id="btnSwitchFullScreen"><i class="fa-solid fa-compress"></i></a>
-      </span>
+<body class="bg-gray-900 text-gray-100">
+  <header class="bg-gray-800 text-white p-4">
+    <div class="container mx-auto max-w-4xl flex justify-between items-center">
+      <h1 class="text-2xl font-bold">[Q]ADR</h1>
+      <i id="btnSwitchFullScreen" class="fa-solid fa-compress cursor-pointer text-white hover:text-gray-300 active:text-teal-400 transform transition-transform duration-200 hover:scale-110 active:scale-90"></i>
+      {{!-- <button class="text-xl transform transition-transform duration-200 hover:scale-90">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+        </svg>
+      </button> --}}
     </div>
-    
-    {{{body}}}
-
-    <script src="js/main.js"></script>
-  </div>
+  </header>
+  <main class="container mx-auto p-4 max-w-4xl">
+   {{{body}}}
+  </main>
+  <script src="js/main.js"></script>
 </body>
 </html>

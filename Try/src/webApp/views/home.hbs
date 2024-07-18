@@ -1,20 +1,13 @@
-{{! <h2>Sketchs</h2> }}
-
-{{#each models.sketchs}}
-  <div class="card">
-    <div class="card-header">
-      <span class="header-title">{{this.name}}</span>
-      <span class="header-icon">
-          <i class="fa-solid fa-eye inactive" onclick="StartSketch('{{this.id}}')"></i>
-          <i class="fa-solid fa-bolt inactive"></i>
-      </span>
-    </div>
-    <div class="card-content">
-      {{this.description}}
-      {{!-- <div class="actions">
-        <span><a class="action" href="?show={{this.id}}">Show</a></span>
-        <span><a class="action" href="?autostart={{this.id}}">Auto Start</a></span>
-      </div> --}}
-    </div>
-  </div>
-{{/each}}
+ <ul class="space-y-4">
+  {{#each models.sketchs}}
+      <li class="bg-gray-700 flex items-center">
+        <div class="flex-1 p-4">
+          <h2 class="text-xl font-semibold text-gray-100">{{this.name}}</h2>
+          <p class="text-gray-300">{{this.description}}</p>
+        </div>
+        <i class="fa-solid fa-eye self-start p-4 cursor-pointer text-white hover:text-gray-300 active:text-teal-400 transform transition-transform duration-200 hover:scale-110 active:scale-90" 
+          onclick="StartSketch('{{this.id}}')">
+        </i>
+      </li>
+  {{/each}}      
+</ul>
