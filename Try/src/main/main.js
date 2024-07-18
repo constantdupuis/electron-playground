@@ -10,7 +10,7 @@ const QADRModels = require("../models/models");
 
 // ** Functions  *********************************************************************
 
-const createWindow = ( models ) => {
+const createWindow = (models) => {
   console.log(`creatWindows __dirname ${__dirname}`);
   const win = new BrowserWindow({
     width: 1200,
@@ -24,9 +24,7 @@ const createWindow = ( models ) => {
   });
 
   win.loadFile("./src/main/index.html");
-  win.removeMenu();
-
-  console.log(`send-params : ${models.serverIPs}`);
+  //win.removeMenu();
 
   ipcMain.on('send-params', (event, args) => {
         console.log(`Main : received send-params message`);
@@ -67,7 +65,8 @@ function getIPs() {
 
 // ** Main *********************************************************************
 
-
+const models = new QADRModels();
+let win;
 
 // ** Events *********************************************************************
 
@@ -83,8 +82,8 @@ app.whenReady().then( async () => {
   await models.loadSketchsInfo('./src/sketchs');
 
   const webApp = new WebApp(models, models.port);
-
-  webApp.toggleFullscreenCallback = () =>{
+  
+  webApp.callbackToggleFullscreen = () =>{
     console.log(`Fullscreen ${fullScreen}`);
     if(fullScreen)
     {
@@ -99,6 +98,24 @@ app.whenReady().then( async () => {
       win.setFullScreen(fullScreen);
     }
   };
+
+  webApp.callBackStartSketch = (sketchId) =>{
+    console.log(`Should start sketch ${sketchId}`);
+    let si = models.findSketchById(sketchId);
+    if( si )
+    {
+      if( win)
+        {
+          const htmlPath = path.join(si.htmlRealivePath, 'index.html');
+          console.log(`Load sketch ${si.id} from ${htmlPath}`);
+          win.loadFile(htmlPath);
+        }
+    }
+    else {
+      console.log(`Unable to find sketch with id [${sketchId}]`);
+    }
+  };
+  
 
   console.log(`createWindows with models ${models}`);
 

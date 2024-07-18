@@ -13,25 +13,28 @@ class QADRModels
         this.sketchs = [];
         
         const homeSketch = new SketchDef('QADR_HOME', '[Q]ADR', '[Q]ADR start page');
-        homeSketch.inShow = true;
-        homeSketch.autoStart = true;
+        homeSketch.htmlRealivePath = 'index.html';
 
         this.sketchs.push(homeSketch);
-        // this.sketchs.push(new SketchDef('FlowField','Flow Field', 'Perlin noise base flow field'));
-        // this.sketchs.push(new SketchDef('MarblePaper','Marble Paper', 'Strange marble paper'));
-        // this.sketchs.push(new SketchDef('Raymarching','Ray marching', 'Alternate use of ray marching'));
     }
 
     async loadSketchsInfo( basePath )
     {
-        let manifests = await this.loadManifestJson(basePath);
+        let sketchInfo = await this.loadManifestJson(basePath);
 
-        manifests.forEach( (m) => {
-            console.log(`ADD Sketch ${m.id}`);
-            this.sketchs.push( new SketchDef( m.id, m.name,m.description));
+        sketchInfo.forEach( (m) => {
+            console.log(`ADD Sketch ${m.manifest.id}`);
+            const sd = new SketchDef( m.manifest.id, m.manifest.name,m.manifest.description);
+            sd.htmlRealivePath = m.path;
+            this.sketchs.push( sd );
         } );
 
-        console.log('Loaded manifests:', manifests);
+        console.log('Loaded manifests:', sketchInfo);
+    }
+
+    findSketchById(sketchId)
+    {
+      return this.sketchs.find( si => si.id === sketchId );
     }
 
     async listSubfolders(folderPath) {
@@ -58,7 +61,9 @@ class QADRModels
             try {
               const data = await fs.readFile(manifestPath, 'utf-8');
               const jsonData = JSON.parse(data);
-              loadedManifests.push(jsonData);
+              loadedManifests.push( {
+                path : subfolder,
+                manifest : jsonData});
             } catch (error) {
               if (error.code === 'ENOENT') {
                 console.log(`manifest.json not found in ${subfolder}`);

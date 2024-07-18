@@ -4,7 +4,8 @@ const { engine } = require('express-handlebars');
 
 class WebApp {
     webapp;
-    toggleFullscreenCallback;
+    callbackToggleFullscreen;
+    callBackStartSketch;
     //port = 3000;
     constructor( models, port )
     {
@@ -19,21 +20,25 @@ class WebApp {
 
         this.webapp.get('/', (req, res) => {
             console.log(`GET /`);
-            console.log(req.query);
             res.render('home', {models : models});
         });
 
         this.webapp.post('/remote/Togglefullscreen', (req, res) => {
             console.log(`receive POST /remote/Togglefullscreen`);
-            if( this.toggleFullscreenCallback)
-                this.toggleFullscreenCallback();
-            console.log(req.query);
+            if( this.callbackToggleFullscreen)
+            {
+                this.callbackToggleFullscreen();
+            }
             res.send('OK');
         });
 
         this.webapp.post('/remote/StartSketch/:sketchId', (req, res) => {
             const sketchId = req.params.sketchId;
             console.log(`receive POST /remote/StartSketch/${sketchId}`);
+            if( this.callBackStartSketch)
+            {
+                this.callBackStartSketch(sketchId);
+            }
             res.send('OK');
         });
           

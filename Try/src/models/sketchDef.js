@@ -4,9 +4,7 @@ class SketchDef {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.autoStart = false;
-    this.inShow = false;
-    this.path= '';
+    this.htmlRealivePath = '';
   }
 }
 
