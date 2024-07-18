@@ -13,7 +13,7 @@ class QADRModels
         this.sketchs = [];
         
         const homeSketch = new SketchDef('QADR_HOME', '[Q]ADR', '[Q]ADR start page');
-        homeSketch.htmlRealivePath = 'index.html';
+        homeSketch.htmlRealivePath = 'src/main';
 
         this.sketchs.push(homeSketch);
     }
