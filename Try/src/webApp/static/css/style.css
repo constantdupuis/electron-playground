@@ -109,7 +109,7 @@ i.active {
 }
 
 i.inactive {
-  color: gray;
+  --color: gray;
   margin-left: 0.6em;
 }
 

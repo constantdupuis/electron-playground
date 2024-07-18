@@ -5,17 +5,8 @@
     <div class="card-header">
       <span class="header-title">{{this.name}}</span>
       <span class="header-icon">
-        {{#if this.inShow}}
-          <i class="fa-solid fa-eye active"></i>
-        {{else}}
-          <i class="fa-solid fa-eye inactive"></i>
-        {{/if}}
-
-        {{#if this.autoStart}}
-          <i class="fa-solid fa-bolt active"></i>
-        {{else}}
+          <i class="fa-solid fa-eye inactive" onclick="StartSketch('{{this.id}}')"></i>
           <i class="fa-solid fa-bolt inactive"></i>
-        {{/if}}
       </span>
     </div>
     <div class="card-content">

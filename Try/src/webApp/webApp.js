@@ -15,7 +15,9 @@ class WebApp {
         this.webapp.engine('hbs', engine({defaultLayout: 'main', extname: '.hbs'}));
         this.webapp.set('view engine','hbs');
         this.webapp.set('views', path.join(__dirname,'views'));
-        this.webapp.use('/static',express.static(path.join(__dirname,'static')));
+        //this.webapp.use('/static',express.static(path.join(__dirname,'static')));
+        this.webapp.use(express.static(path.join(__dirname,'static')));
+
 
         // this.webapp.get('/sketch/show/:sketchId', (req, res) => {
         //     console.log(req.params);
@@ -34,11 +36,20 @@ class WebApp {
             res.render('home', {models : models});
         });
 
-        this.webapp.get('/remote/Togglefullscreen', (req, res) => {
-            console.log(`GET /remote/Togglefullscreen`);
+        this.webapp.post('/remote/Togglefullscreen', (req, res) => {
+            console.log(`receive POST /remote/Togglefullscreen`);
             if( this.toggleFullscreenCallback)
                 this.toggleFullscreenCallback();
             console.log(req.query);
+            res.send('OK');
+        });
+
+        this.webapp.post('/remote/StartSketch/:sketchId', (req, res) => {
+            const sketchId = req.params.sketchId;
+            console.log(`receive POST /remote/StartSketch/${sketchId}`);
+            // if( this.toggleFullscreenCallback)
+            //     this.toggleFullscreenCallback();
+            // console.log(req.query);
             res.send('OK');
         });
           
