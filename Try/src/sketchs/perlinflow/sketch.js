@@ -3,14 +3,15 @@
 
 let particles = [];
 let particlesCount = 10000;
-let noiseSpeed = 20;
+let noiseSpeed = 15;
 let alivedPaticlesCount = particlesCount;
 
 //let colorScale = chroma.scale(['#DEF9C4', '#468585']);
 //let colorScale = chroma.scale(['#D6EFD8', '#1A5319']);
 //let colorScale = chroma.scale(['#EEEEEE', '#DC5F00']);
 //let colorScale = chroma.scale(['#DAD3BE', '#002125']);
-let colorScale = chroma.scale(['#002125', '#DAD3BE']); // 10/10
+//let colorScale = chroma.scale(['#002125', '#DAD3BE']); // 10/10
+let colorScale = chroma.scale(['#FFFFFF', '#000000']); // 10/10
 //let colorScale = chroma.scale(['#DAD3BE', '#002125']);
 //let colorScale = chroma.scale(['#00112A', '#6BDFDB']);
 
@@ -62,7 +63,11 @@ function generateNoiseMapAndParticles()
       const p = new Particle(random(width), random(height));
 
       //const p = new Particle(width * 0.5, height * 0.95);
-      //p.setVelocity( random() * 100, random() * 100);
+      const n = NoiseMapGetAt(p.x, p.y);
+      //console.log("noise pour particule  : " + x + "  = "  + n);
+      const vx = cos(n*360) * noiseSpeed;
+      const vy = sin(n*360) * noiseSpeed;
+      p.setVelocity( vx, vy);
       p.setTimeToLive(60 + random(60));
       particles.push(p);
     }

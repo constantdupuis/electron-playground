@@ -49,9 +49,13 @@ function draw() {
 }
 
 function myDraw() {
+  const coin = random(100);
+
   hideLoadingOnFirstDraw();
-  drawPerlinNoiseBaseSquares();
-  //drawSimpleOverlayedSquares();
+  if( coin < 50)
+    drawPerlinNoiseBaseSquares();
+  else
+    drawSimpleOverlayedSquares();
 }
 
 function keyPressed() {
