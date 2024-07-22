@@ -16,14 +16,15 @@ let loadingDiv;
 let firstDraw = true;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight+20); // +20 to remove blanc line at the bottom, canvas always smaller in height than HTML/BODY !?
   loadingDiv = document.getElementById("loading");
   noLoop();
 }
 
 function windowResized() {
+  // Adjust the canvas size when the window is resized
   showLoading();
-  resizeCanvas(windowWidth, windowHeight); // Adjust the canvas size when the window is resized
+  resizeCanvas(windowWidth, windowHeight+20); // +20 to remove blanc line at the bottom, canvas always smaller in height than HTML/BODY !?
   myDraw();
 }
 
@@ -49,8 +50,8 @@ function draw() {
 }
 
 function myDraw() {
-  drawPerlinNoiseBaseSquares();
-  //drawSimpleOverlayedSquares();
+  //drawPerlinNoiseBaseSquares();
+  drawSimpleOverlayedSquares();
 }
 
 function keyPressed() {
@@ -81,8 +82,8 @@ function drawSimpleOverlayedSquares() {
   noiseSeed(Date.now() + 789165416);
 
   cellWidth = 40;
-  xCellCounts = Math.ceil(width / cellWidth);
-  yCellCounts = Math.ceil(height / cellWidth);
+  xCellCounts = Math.ceil(width / cellWidth)+1;
+  yCellCounts = Math.ceil(height / cellWidth)+1;
 
   let c = color(colorScale(0.0).alpha(0.25).hex());
   stroke(c);
@@ -95,8 +96,8 @@ function drawSimpleOverlayedSquares() {
   stroke(c);
 
   cellWidth = 50;
-  xCellCounts = Math.ceil(width / cellWidth);
-  yCellCounts = Math.ceil(height / cellWidth);
+  xCellCounts = Math.ceil(width / cellWidth)+1;
+  yCellCounts = Math.ceil(height / cellWidth)+1;
 
   for (let i = 0; i < width; i += cellWidth)
     for (let j = 0; j < height; j += cellWidth)
@@ -105,8 +106,8 @@ function drawSimpleOverlayedSquares() {
   stroke(c);
 
   cellWidth = 50;
-  xCellCounts = Math.ceil(width / cellWidth);
-  yCellCounts = Math.ceil(height / cellWidth);
+  xCellCounts = Math.ceil(width / cellWidth)+1;
+  yCellCounts = Math.ceil(height / cellWidth)+1;
 
   for (let i = 0; i < width; i += cellWidth)
     for (let j = 0; j < height; j += cellWidth)
@@ -116,8 +117,8 @@ function drawSimpleOverlayedSquares() {
   stroke(c);
 
   cellWidth = 100;
-  xCellCounts = Math.ceil(width / cellWidth);
-  yCellCounts = Math.ceil(height / cellWidth);
+  xCellCounts = Math.ceil(width / cellWidth)+1;
+  yCellCounts = Math.ceil(height / cellWidth)+1;
 
   for (let i = 0; i < width; i += cellWidth)
     for (let j = 0; j < height; j += cellWidth)
@@ -135,8 +136,8 @@ function drawPerlinNoiseBaseSquares() {
   noiseSeed(Date.now() + 789165416);
 
   cellWidth = 20;
-  xCellCounts = Math.ceil(width / cellWidth);
-  yCellCounts = Math.ceil(height / cellWidth);
+  xCellCounts = Math.ceil(width / cellWidth)+1;
+  yCellCounts = Math.ceil(height / cellWidth)+1;
 
   for (let i = 0; i < xCellCounts; i++)
     for (let j = 0; j < yCellCounts; j++) {
@@ -161,8 +162,8 @@ function drawPerlinNoiseBaseSquares() {
   noiseSeed(Date.now() + 85349231);
 
   cellWidth = 30;
-  xCellCounts = Math.ceil(width / cellWidth);
-  yCellCounts = Math.ceil(height / cellWidth);
+  xCellCounts = Math.ceil(width / cellWidth)+1;
+  yCellCounts = Math.ceil(height / cellWidth)+1;
 
   for (let i = 0; i < xCellCounts; i++)
     for (let j = 0; j < yCellCounts; j++) {
@@ -185,8 +186,8 @@ function drawPerlinNoiseBaseSquares() {
     }
 
   cellWidth = 10;
-  xCellCounts = Math.ceil(width / cellWidth);
-  yCellCounts = Math.ceil(height / cellWidth);
+  xCellCounts = Math.ceil(width / cellWidth)+1;
+  yCellCounts = Math.ceil(height / cellWidth)+1;
 
   for (let i = 0; i < xCellCounts; i++)
     for (let j = 0; j < yCellCounts; j++) {
