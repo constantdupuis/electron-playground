@@ -50,8 +50,8 @@ function draw() {
 
 function myDraw() {
   hideLoadingOnFirstDraw();
-  //drawPerlinNoiseBaseSquares();
-  drawSimpleOverlayedSquares();
+  drawPerlinNoiseBaseSquares();
+  //drawSimpleOverlayedSquares();
 }
 
 function keyPressed() {
