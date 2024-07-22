@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<!-- <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stripped lines</title>
-</head>
-<body>
-    <h1>Stripped lines</h1>
-</body>
-</html> -->
 <html>
   <header>
     <style>
@@ -29,23 +19,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 24px;
+        font-size: 64px;
         color: #555;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
-      /* body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            } */
-
-      /* canvas 
-            {
-                border : 1px solid lightgray; 
-                box-shadow: 3px 3px 5px gray;
-            } */
+      canvas {
+        display: block; /* Prevents canvas from creating scrollbars */
+      }
     </style>
-    <title>p5.js first again</title>
+    <title>[Q]ADR Stripped Lines</title>
   </header>
   <script src="lib/p5/p5.min.js"></script>
   <!-- <script src="lib/p5/addons/p5.sound.min.js"></script> -->
@@ -53,6 +39,6 @@
   <script src="lib/Cohen-Sutherland-line-clipping.js"></script>
   <script src="sketch.js"></script>
   <body>
-    <div id="loading">Loading...</div>
+    <div id="loading">[Q]</div>
   </body>
 </html>

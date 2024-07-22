@@ -16,7 +16,7 @@ let loadingDiv;
 let firstDraw = true;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight+20); // +20 to remove blanc line at the bottom, canvas always smaller in height than HTML/BODY !?
+  createCanvas(windowWidth, windowHeight);
   loadingDiv = document.getElementById("loading");
   noLoop();
 }
@@ -24,8 +24,8 @@ function setup() {
 function windowResized() {
   // Adjust the canvas size when the window is resized
   showLoading();
-  resizeCanvas(windowWidth, windowHeight+20); // +20 to remove blanc line at the bottom, canvas always smaller in height than HTML/BODY !?
-  myDraw();
+  resizeCanvas(windowWidth, windowHeight);
+  //myDraw();
 }
 
 function hideLoadingOnFirstDraw() {
@@ -45,11 +45,11 @@ function showLoading() {
 }
 
 function draw() {
-  hideLoadingOnFirstDraw();
   myDraw();
 }
 
 function myDraw() {
+  hideLoadingOnFirstDraw();
   //drawPerlinNoiseBaseSquares();
   drawSimpleOverlayedSquares();
 }
