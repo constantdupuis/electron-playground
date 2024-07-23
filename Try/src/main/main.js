@@ -20,11 +20,12 @@ const createWindow = (models) => {
       //preload: 'preload.js',
       contextIsolation: true,
       enableRemoteModule: false,
-  }
+    },
+    autoHideMenuBar: true
   });
 
   win.loadFile("./src/main/index.html");
-  win.removeMenu();
+  //win.removeMenu();
 
   ipcMain.on('send-params', (event, args) => {
         console.log(`Main : received send-params message`);
